@@ -1,10 +1,7 @@
 #MicrochipStudio
 .vs/
 
-Debug/**/
-Debug/*
-!Debug/tiny85_StateMachine.hex
-!Debug/tiny85_StateMachine.elf
+#extra ignore in DEBUG...
 
 #proteus
 *.pdsbak
