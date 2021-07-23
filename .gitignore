@@ -1,8 +1,8 @@
 #MicrochipStudio
-**/.vs/
-**/Debug/
-!**/*.hex
-!**/*.elf
+.vs/
+Debug/
+!Debug/*.hex
+!Debug/*.elf
 
 #proteus
 *.pdsbak
