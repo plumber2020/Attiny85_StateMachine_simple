@@ -1,6 +1,6 @@
 #MicrochipStudio
-.vs/
-Debug/
+**/.vs/
+**/Debug/
 !**/*.hex
 !**/*.elf
 
