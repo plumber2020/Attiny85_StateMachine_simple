@@ -1,6 +1,7 @@
 #ifndef TMR1_H_
 #define TMR1_H_
 
+#include "device_config.h"
 #include "pin_manager.h"
 
 #define TMR1_BOTTOM				0
@@ -37,7 +38,14 @@ void TMR1_Interrupt();
 
 */
 
-#define	TMR1_START_PRESCALER(VALUE)	TCCR1 |= ((VALUE&0xF)<<CS10)
+#define	TMR1_DIVIDER						16384UL
+#define	TMR1_START_PRESCALER(PRESCALER)		TCCR1 |= ((PRESCALER&0xF)<<CS10)
+
+#define	OCR1C_PRESET_VALUE			244		// Fin=	488.28125Hz; OCR1C = Fin/Fout = 488Hz/2Hz = 244
+#define	OCR1A_PRESET_VALUE			200		// any value less OCR1C
+#define TMR1_INTERRUPT_PERIOD_ms	OCR1C_PRESET_VALUE*TMR1_DIVIDER/(F_CPU/1000)	//499
+
+bool TMR1_TimeOUT(unsigned delay_ms);
 
 /*
 	TMR0 Setting MODE
@@ -64,5 +72,6 @@ void TMR1_Interrupt();
 
 void TMR1_Initialize();
 void TMR1_START();
+
 
 #endif /* TMR1_H_ */
