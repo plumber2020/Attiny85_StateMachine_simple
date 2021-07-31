@@ -8,9 +8,9 @@ struct StateMachine {
     Connection** _conns;
     const unsigned CONNS_SIZE;
     
-    StateMachine(const unsigned conns_SIZE);
+    StateMachine(Connection** conns, const unsigned conns_SIZE);
 
-    void set_initial(State* state, Connection** conns);
+    void set_initialState(State* state);
     void check_event();
 	void print_currentState();
 	

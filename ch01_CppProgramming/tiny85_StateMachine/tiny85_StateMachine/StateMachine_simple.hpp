@@ -19,15 +19,15 @@
 		|			 ------------			|
 		 --------<	|			 |	<-------
 					|STATE_YELLOW|
-		 -------->	|			 |	>-----------------------
-		|			 ------------							|
+		 -------->	|			 |	>---------------------------
+		|			 ------------								|
 		trans_BY											trans_YG
 		|	  ------------------		 ----------------		|
 		 --< |  STATE_BLINKING  |		|  STATE_GREEN   | <----
 		|	  ------------------		 ----------------	
 		|				   ^  ^						|
 		|				   |  |						|
-		-trans_BB(blinking)-   ---------trans_BB ---
+		-trans_BB(blinking)-   ---------trans_GB ---
 
 */
 
@@ -91,7 +91,7 @@ Connection conn_YR(&state_Y, &trans_YR, &state_R);
 
 // create StateMachine.......... /////////////////////////////////////////
 Connection* p_conn[] = { &conn_RY, &conn_YG, &conn_GB, &conn_BB, &conn_BY, &conn_YR};
-StateMachine stm(Connection::count);
+StateMachine stm(p_conn, Connection::count);
 
 
 

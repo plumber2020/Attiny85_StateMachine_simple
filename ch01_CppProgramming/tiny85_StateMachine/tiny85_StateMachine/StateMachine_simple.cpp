@@ -3,7 +3,7 @@
 
 void StateMachine_Initialize() 
 {
-    stm.set_initial(&state_Y, p_conn);
+    stm.set_initialState(&state_Y);
 }
 
 inline bool TMR1_TimeOUT(unsigned delay_ms) {

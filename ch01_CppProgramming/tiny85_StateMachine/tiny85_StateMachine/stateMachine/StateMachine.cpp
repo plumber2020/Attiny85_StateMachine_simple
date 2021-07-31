@@ -1,13 +1,12 @@
 #include "StateMachine.h"
 
-StateMachine::StateMachine(const unsigned conns_SIZE)
-	: CONNS_SIZE(conns_SIZE)
+StateMachine::StateMachine(Connection** conns, const unsigned conns_SIZE)
+	: _conns(conns), CONNS_SIZE(conns_SIZE)
 {}
 
-void StateMachine::set_initial(State* state, Connection** conns) {
+void StateMachine::set_initialState(State* state) {
     _current_state = state;
 	_current_state->_in();
-	_conns = conns; 
 }
 
 void StateMachine::check_event() {
