@@ -1,12 +1,34 @@
-# Attiny85_StateMachine_simple
+#include "StateMachine_simple.h"
+#include "stateMachine-OOP/StateMachine.h"
+#include "source/tmr1.h"
+#include "source/pin_manager.h"
 
-## *initialize RGB_semaphor with blinking green:*
 
-```cpp
 #define RED_PERIOD_msec				8000		//RED light
-#define YLW_PERIOD_msec				1000		//YLW light
+#define YLW_PERIOD_msec				2000		//YLW light
 #define GRN_PERIOD_msec				7000		//GREEN light
 #define BLINKING_MAX				5
+
+
+/*
+					 -----------
+		 -------->	| STATE_RED |	>-------
+		|			 -----------			|
+		trans_YR							trans_RY
+		|			 ------------			|
+		 --------<	|			 |	<-------
+					|STATE_YELLOW|
+		 -------->	|			 |	>---------------------------
+		|			 ------------								|
+		trans_BY											trans_YG
+		|	  ------------------		 ----------------		|
+		 --< |  STATE_BLINKING  |		|  STATE_GREEN   | <----
+		|	  ------------------		 ----------------	
+		|				   ^  ^						|
+		|				   |  |						|
+		-trans_BB(blinking)-   ---------trans_GB ---
+
+*/
 
 
 static volatile unsigned tic_counter = 0;
@@ -66,7 +88,7 @@ Connection conn_BB(&trans_BB, &state_B);
 Connection conn_BY(&trans_BY, &state_Y);
 Connection conn_YR(&trans_YR, &state_R);
 
-// in a strict sequence (Ğ² ÑÑ‚Ñ€Ğ¾Ğ³Ğ¾Ğ¹ Ğ¾Ñ‡ĞµÑ€ĞµĞ´Ğ½Ğ¾ÑÑ‚Ğ¸)
+// in a strict sequence (â ñòğîãîé î÷åğåäíîñòè)
 Connection* p_connections_fromR[] = { &conn_RY};
 Connection* p_connections_fromY[] = { &conn_YG, &conn_YR};
 Connection* p_connections_fromG[] = { &conn_GB };
@@ -75,5 +97,5 @@ Connection* p_connections_fromB[] = { &conn_BB, &conn_BY};
 // create StateMachine.......... /////////////////////////////////////////
 StateMachine stm;
 
-```
+
 
