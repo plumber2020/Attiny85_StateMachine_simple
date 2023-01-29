@@ -1,0 +1,32 @@
+#include "tmr1.h"
+
+// INTERRUPT /////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+__attribute__((weak)) void TMR1_Interrupt() {}
+
+
+// INIT	//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+void TMR1_Init() 
+{	
+	TCCR1 = 0;
+
+	TMR1_CTC_MODE(ENABLE);
+	OCR1C = TMR1_OCR1C_PRESET;
+	OCR1A = TMR1_OCR1A_PRESET;
+	
+	TMR1_PWM1A_MODE(DISABLE);
+	TMR1_PWM1B_MODE(DISABLE);
+	
+	TMR1_OC1A_DISCONNECT();
+	TMR1_OC1B_DISCONNECT();
+	
+	TMR1_INTERRUPT_OCIE1A(ENABLE);
+}
+
+void TMR1_Start() {
+	TCCR1 |= TMR1_PRESCLALER;
+}
+

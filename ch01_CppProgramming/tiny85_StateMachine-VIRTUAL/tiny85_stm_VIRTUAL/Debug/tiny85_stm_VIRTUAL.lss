@@ -1,0 +1,1081 @@
+
+tiny85_stm_VIRTUAL.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000005ba  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000020  00800060  000005ba  0000064e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000007d  00800080  00800080  0000066e  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000066e  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000006a0  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000001f0  00000000  00000000  000006dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00002114  00000000  00000000  000008cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000cd8  00000000  00000000  000029e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000aa7  00000000  00000000  000036b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000390  00000000  00000000  00004160  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000ac0  00000000  00000000  000044f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000003bb  00000000  00000000  00004fb0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000170  00000000  00000000  0000536b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0f c0       	rjmp	.+30     	; 0x20 <__ctors_end>
+   2:	33 c0       	rjmp	.+102    	; 0x6a <__bad_interrupt>
+   4:	32 c0       	rjmp	.+100    	; 0x6a <__bad_interrupt>
+   6:	32 c0       	rjmp	.+100    	; 0x6c <__vector_3>
+   8:	30 c0       	rjmp	.+96     	; 0x6a <__bad_interrupt>
+   a:	2f c0       	rjmp	.+94     	; 0x6a <__bad_interrupt>
+   c:	2e c0       	rjmp	.+92     	; 0x6a <__bad_interrupt>
+   e:	2d c0       	rjmp	.+90     	; 0x6a <__bad_interrupt>
+  10:	2c c0       	rjmp	.+88     	; 0x6a <__bad_interrupt>
+  12:	2b c0       	rjmp	.+86     	; 0x6a <__bad_interrupt>
+  14:	2a c0       	rjmp	.+84     	; 0x6a <__bad_interrupt>
+  16:	29 c0       	rjmp	.+82     	; 0x6a <__bad_interrupt>
+  18:	28 c0       	rjmp	.+80     	; 0x6a <__bad_interrupt>
+  1a:	27 c0       	rjmp	.+78     	; 0x6a <__bad_interrupt>
+  1c:	26 c0       	rjmp	.+76     	; 0x6a <__bad_interrupt>
+
+0000001e <__ctors_start>:
+  1e:	b1 01       	movw	r22, r2
+
+00000020 <__ctors_end>:
+  20:	11 24       	eor	r1, r1
+  22:	1f be       	out	0x3f, r1	; 63
+  24:	cf e5       	ldi	r28, 0x5F	; 95
+  26:	d2 e0       	ldi	r29, 0x02	; 2
+  28:	de bf       	out	0x3e, r29	; 62
+  2a:	cd bf       	out	0x3d, r28	; 61
+
+0000002c <__do_copy_data>:
+  2c:	10 e0       	ldi	r17, 0x00	; 0
+  2e:	a0 e6       	ldi	r26, 0x60	; 96
+  30:	b0 e0       	ldi	r27, 0x00	; 0
+  32:	ea eb       	ldi	r30, 0xBA	; 186
+  34:	f5 e0       	ldi	r31, 0x05	; 5
+  36:	02 c0       	rjmp	.+4      	; 0x3c <__do_copy_data+0x10>
+  38:	05 90       	lpm	r0, Z+
+  3a:	0d 92       	st	X+, r0
+  3c:	a0 38       	cpi	r26, 0x80	; 128
+  3e:	b1 07       	cpc	r27, r17
+  40:	d9 f7       	brne	.-10     	; 0x38 <__do_copy_data+0xc>
+
+00000042 <__do_clear_bss>:
+  42:	20 e0       	ldi	r18, 0x00	; 0
+  44:	a0 e8       	ldi	r26, 0x80	; 128
+  46:	b0 e0       	ldi	r27, 0x00	; 0
+  48:	01 c0       	rjmp	.+2      	; 0x4c <.do_clear_bss_start>
+
+0000004a <.do_clear_bss_loop>:
+  4a:	1d 92       	st	X+, r1
+
+0000004c <.do_clear_bss_start>:
+  4c:	ad 3f       	cpi	r26, 0xFD	; 253
+  4e:	b2 07       	cpc	r27, r18
+  50:	e1 f7       	brne	.-8      	; 0x4a <.do_clear_bss_loop>
+
+00000052 <__do_global_ctors>:
+  52:	10 e0       	ldi	r17, 0x00	; 0
+  54:	c0 e1       	ldi	r28, 0x10	; 16
+  56:	d0 e0       	ldi	r29, 0x00	; 0
+  58:	03 c0       	rjmp	.+6      	; 0x60 <__do_global_ctors+0xe>
+  5a:	21 97       	sbiw	r28, 0x01	; 1
+  5c:	fe 01       	movw	r30, r28
+  5e:	96 d2       	rcall	.+1324   	; 0x58c <__tablejump2__>
+  60:	cf 30       	cpi	r28, 0x0F	; 15
+  62:	d1 07       	cpc	r29, r17
+  64:	d1 f7       	brne	.-12     	; 0x5a <__do_global_ctors+0x8>
+  66:	f5 d0       	rcall	.+490    	; 0x252 <main>
+  68:	a6 c2       	rjmp	.+1356   	; 0x5b6 <_exit>
+
+0000006a <__bad_interrupt>:
+  6a:	ca cf       	rjmp	.-108    	; 0x0 <__vectors>
+
+0000006c <__vector_3>:
+#include "compiler.h"
+#include "driver_init.h"
+#include <avr/interrupt.h>
+
+
+ISR(TIM1_COMPA_vect) {
+  6c:	1f 92       	push	r1
+  6e:	0f 92       	push	r0
+  70:	0f b6       	in	r0, 0x3f	; 63
+  72:	0f 92       	push	r0
+  74:	11 24       	eor	r1, r1
+  76:	2f 93       	push	r18
+  78:	3f 93       	push	r19
+  7a:	4f 93       	push	r20
+  7c:	5f 93       	push	r21
+  7e:	6f 93       	push	r22
+  80:	7f 93       	push	r23
+  82:	8f 93       	push	r24
+  84:	9f 93       	push	r25
+  86:	af 93       	push	r26
+  88:	bf 93       	push	r27
+  8a:	ef 93       	push	r30
+  8c:	ff 93       	push	r31
+	TMR1_Interrupt(); 
+  8e:	a5 d0       	rcall	.+330    	; 0x1da <_Z14TMR1_Interruptv>
+}
+  90:	ff 91       	pop	r31
+  92:	ef 91       	pop	r30
+  94:	bf 91       	pop	r27
+  96:	af 91       	pop	r26
+  98:	9f 91       	pop	r25
+  9a:	8f 91       	pop	r24
+  9c:	7f 91       	pop	r23
+  9e:	6f 91       	pop	r22
+  a0:	5f 91       	pop	r21
+  a2:	4f 91       	pop	r20
+  a4:	3f 91       	pop	r19
+  a6:	2f 91       	pop	r18
+  a8:	0f 90       	pop	r0
+  aa:	0f be       	out	0x3f, r0	; 63
+  ac:	0f 90       	pop	r0
+  ae:	1f 90       	pop	r1
+  b0:	18 95       	reti
+
+000000b2 <_Z4in_0v>:
+#define STATE1_PERIOD_msec				100		//LED_RED
+#define STATE2_PERIOD_msec				30		//LED_YELLOW
+#define STATE3_PERIOD_msec				420		//LED_GREEN
+
+void in_0 ()	{ PIN_SET_HIGH(LED_SUPER);	stm_0_tic = 0;	}
+void out_0()	{ PIN_SET_LOW(LED_SUPER);					}
+  b2:	88 b3       	in	r24, 0x18	; 24
+  b4:	80 61       	ori	r24, 0x10	; 16
+  b6:	88 bb       	out	0x18, r24	; 24
+  b8:	10 92 fc 00 	sts	0x00FC, r1	; 0x8000fc <stm_0_tic+0x1>
+  bc:	10 92 fb 00 	sts	0x00FB, r1	; 0x8000fb <stm_0_tic>
+  c0:	08 95       	ret
+
+000000c2 <_Z4in_1v>:
+  c2:	88 b3       	in	r24, 0x18	; 24
+  c4:	82 60       	ori	r24, 0x02	; 2
+  c6:	88 bb       	out	0x18, r24	; 24
+  c8:	10 92 fa 00 	sts	0x00FA, r1	; 0x8000fa <stm_1_tic+0x1>
+  cc:	10 92 f9 00 	sts	0x00F9, r1	; 0x8000f9 <stm_1_tic>
+  d0:	08 95       	ret
+
+000000d2 <_Z5out_1v>:
+  d2:	88 b3       	in	r24, 0x18	; 24
+  d4:	8d 7f       	andi	r24, 0xFD	; 253
+  d6:	88 bb       	out	0x18, r24	; 24
+  d8:	08 95       	ret
+
+000000da <_Z4in_2v>:
+  da:	88 b3       	in	r24, 0x18	; 24
+  dc:	84 60       	ori	r24, 0x04	; 4
+  de:	88 bb       	out	0x18, r24	; 24
+  e0:	10 92 fa 00 	sts	0x00FA, r1	; 0x8000fa <stm_1_tic+0x1>
+  e4:	10 92 f9 00 	sts	0x00F9, r1	; 0x8000f9 <stm_1_tic>
+  e8:	08 95       	ret
+
+000000ea <_Z5out_2v>:
+  ea:	88 b3       	in	r24, 0x18	; 24
+  ec:	8b 7f       	andi	r24, 0xFB	; 251
+  ee:	88 bb       	out	0x18, r24	; 24
+  f0:	08 95       	ret
+
+000000f2 <_Z4in_3v>:
+  f2:	88 b3       	in	r24, 0x18	; 24
+  f4:	88 60       	ori	r24, 0x08	; 8
+  f6:	88 bb       	out	0x18, r24	; 24
+  f8:	10 92 fc 00 	sts	0x00FC, r1	; 0x8000fc <stm_0_tic+0x1>
+  fc:	10 92 fb 00 	sts	0x00FB, r1	; 0x8000fb <stm_0_tic>
+ 100:	08 95       	ret
+
+00000102 <_Z5out_3v>:
+ 102:	88 b3       	in	r24, 0x18	; 24
+ 104:	87 7f       	andi	r24, 0xF7	; 247
+ 106:	88 bb       	out	0x18, r24	; 24
+ 108:	08 95       	ret
+
+0000010a <_Z17action0_tic_resetv>:
+ 10a:	10 92 fc 00 	sts	0x00FC, r1	; 0x8000fc <stm_0_tic+0x1>
+ 10e:	10 92 fb 00 	sts	0x00FB, r1	; 0x8000fb <stm_0_tic>
+ 112:	08 95       	ret
+
+00000114 <_Z17action1_tic_resetv>:
+ 114:	10 92 fa 00 	sts	0x00FA, r1	; 0x8000fa <stm_1_tic+0x1>
+ 118:	10 92 f9 00 	sts	0x00F9, r1	; 0x8000f9 <stm_1_tic>
+ 11c:	08 95       	ret
+
+0000011e <_Z41__static_initialization_and_destruction_0ii>:
+ 11e:	01 97       	sbiw	r24, 0x01	; 1
+ 120:	09 f0       	breq	.+2      	; 0x124 <_Z41__static_initialization_and_destruction_0ii+0x6>
+ 122:	5a c0       	rjmp	.+180    	; 0x1d8 <_Z41__static_initialization_and_destruction_0ii+0xba>
+ 124:	6f 3f       	cpi	r22, 0xFF	; 255
+ 126:	7f 4f       	sbci	r23, 0xFF	; 255
+ 128:	09 f0       	breq	.+2      	; 0x12c <_Z41__static_initialization_and_destruction_0ii+0xe>
+ 12a:	56 c0       	rjmp	.+172    	; 0x1d8 <_Z41__static_initialization_and_destruction_0ii+0xba>
+ 12c:	60 e6       	ldi	r22, 0x60	; 96
+ 12e:	70 e0       	ldi	r23, 0x00	; 0
+ 130:	84 ee       	ldi	r24, 0xE4	; 228
+ 132:	90 e0       	ldi	r25, 0x00	; 0
+ 134:	4e d1       	rcall	.+668    	; 0x3d2 <_ZN5StateC1EPKc>
+ 136:	68 e6       	ldi	r22, 0x68	; 104
+ 138:	70 e0       	ldi	r23, 0x00	; 0
+ 13a:	80 ed       	ldi	r24, 0xD0	; 208
+ 13c:	90 e0       	ldi	r25, 0x00	; 0
+ 13e:	49 d1       	rcall	.+658    	; 0x3d2 <_ZN5StateC1EPKc>
+ 140:	60 e7       	ldi	r22, 0x70	; 112
+ 142:	70 e0       	ldi	r23, 0x00	; 0
+ 144:	8c eb       	ldi	r24, 0xBC	; 188
+ 146:	90 e0       	ldi	r25, 0x00	; 0
+ 148:	44 d1       	rcall	.+648    	; 0x3d2 <_ZN5StateC1EPKc>
+ 14a:	68 e7       	ldi	r22, 0x78	; 120
+ 14c:	70 e0       	ldi	r23, 0x00	; 0
+ 14e:	88 ea       	ldi	r24, 0xA8	; 168
+ 150:	90 e0       	ldi	r25, 0x00	; 0
+ 152:	3f d1       	rcall	.+638    	; 0x3d2 <_ZN5StateC1EPKc>
+ 154:	45 e8       	ldi	r20, 0x85	; 133
+ 156:	50 e0       	ldi	r21, 0x00	; 0
+ 158:	6e e0       	ldi	r22, 0x0E	; 14
+ 15a:	71 e0       	ldi	r23, 0x01	; 1
+ 15c:	84 ea       	ldi	r24, 0xA4	; 164
+ 15e:	90 e0       	ldi	r25, 0x00	; 0
+ 160:	0f d2       	rcall	.+1054   	; 0x580 <_ZN11TransactionC1EPFbvEPFvvE>
+ 162:	4a e8       	ldi	r20, 0x8A	; 138
+ 164:	50 e0       	ldi	r21, 0x00	; 0
+ 166:	61 e2       	ldi	r22, 0x21	; 33
+ 168:	71 e0       	ldi	r23, 0x01	; 1
+ 16a:	80 ea       	ldi	r24, 0xA0	; 160
+ 16c:	90 e0       	ldi	r25, 0x00	; 0
+ 16e:	08 d2       	rcall	.+1040   	; 0x580 <_ZN11TransactionC1EPFbvEPFvvE>
+ 170:	4a e8       	ldi	r20, 0x8A	; 138
+ 172:	50 e0       	ldi	r21, 0x00	; 0
+ 174:	65 e2       	ldi	r22, 0x25	; 37
+ 176:	71 e0       	ldi	r23, 0x01	; 1
+ 178:	8c e9       	ldi	r24, 0x9C	; 156
+ 17a:	90 e0       	ldi	r25, 0x00	; 0
+ 17c:	01 d2       	rcall	.+1026   	; 0x580 <_ZN11TransactionC1EPFbvEPFvvE>
+ 17e:	45 e8       	ldi	r20, 0x85	; 133
+ 180:	50 e0       	ldi	r21, 0x00	; 0
+ 182:	62 e1       	ldi	r22, 0x12	; 18
+ 184:	71 e0       	ldi	r23, 0x01	; 1
+ 186:	88 e9       	ldi	r24, 0x98	; 152
+ 188:	90 e0       	ldi	r25, 0x00	; 0
+ 18a:	fa d1       	rcall	.+1012   	; 0x580 <_ZN11TransactionC1EPFbvEPFvvE>
+ 18c:	48 ea       	ldi	r20, 0xA8	; 168
+ 18e:	50 e0       	ldi	r21, 0x00	; 0
+ 190:	64 ea       	ldi	r22, 0xA4	; 164
+ 192:	70 e0       	ldi	r23, 0x00	; 0
+ 194:	84 e9       	ldi	r24, 0x94	; 148
+ 196:	90 e0       	ldi	r25, 0x00	; 0
+ 198:	16 d1       	rcall	.+556    	; 0x3c6 <_ZN10ConnectionC1EP11TransactionP5State>
+ 19a:	4c eb       	ldi	r20, 0xBC	; 188
+ 19c:	50 e0       	ldi	r21, 0x00	; 0
+ 19e:	60 ea       	ldi	r22, 0xA0	; 160
+ 1a0:	70 e0       	ldi	r23, 0x00	; 0
+ 1a2:	80 e9       	ldi	r24, 0x90	; 144
+ 1a4:	90 e0       	ldi	r25, 0x00	; 0
+ 1a6:	0f d1       	rcall	.+542    	; 0x3c6 <_ZN10ConnectionC1EP11TransactionP5State>
+ 1a8:	40 ed       	ldi	r20, 0xD0	; 208
+ 1aa:	50 e0       	ldi	r21, 0x00	; 0
+ 1ac:	6c e9       	ldi	r22, 0x9C	; 156
+ 1ae:	70 e0       	ldi	r23, 0x00	; 0
+ 1b0:	8c e8       	ldi	r24, 0x8C	; 140
+ 1b2:	90 e0       	ldi	r25, 0x00	; 0
+ 1b4:	08 d1       	rcall	.+528    	; 0x3c6 <_ZN10ConnectionC1EP11TransactionP5State>
+ 1b6:	44 ee       	ldi	r20, 0xE4	; 228
+ 1b8:	50 e0       	ldi	r21, 0x00	; 0
+ 1ba:	68 e9       	ldi	r22, 0x98	; 152
+ 1bc:	70 e0       	ldi	r23, 0x00	; 0
+ 1be:	88 e8       	ldi	r24, 0x88	; 136
+ 1c0:	90 e0       	ldi	r25, 0x00	; 0
+ 1c2:	01 d1       	rcall	.+514    	; 0x3c6 <_ZN10ConnectionC1EP11TransactionP5State>
+ 1c4:	64 ee       	ldi	r22, 0xE4	; 228
+ 1c6:	70 e0       	ldi	r23, 0x00	; 0
+ 1c8:	80 e8       	ldi	r24, 0x80	; 128
+ 1ca:	90 e0       	ldi	r25, 0x00	; 0
+ 1cc:	28 d1       	rcall	.+592    	; 0x41e <_ZN12StateMachineC1EP5State>
+ 1ce:	60 ed       	ldi	r22, 0xD0	; 208
+ 1d0:	70 e0       	ldi	r23, 0x00	; 0
+ 1d2:	84 e8       	ldi	r24, 0x84	; 132
+ 1d4:	90 e0       	ldi	r25, 0x00	; 0
+ 1d6:	23 d1       	rcall	.+582    	; 0x41e <_ZN12StateMachineC1EP5State>
+ 1d8:	08 95       	ret
+
+000001da <_Z14TMR1_Interruptv>:
+void out_3()	{ PIN_SET_LOW(LED_GREEN);					}
+	
+///////////////////////////////////////////////////////////
+//	TIC SETTING	///////////////////////////////////////////
+
+void TMR1_Interrupt() { ++stm_0_tic; ++stm_1_tic; tic_flag = 1; }
+ 1da:	80 91 fb 00 	lds	r24, 0x00FB	; 0x8000fb <stm_0_tic>
+ 1de:	90 91 fc 00 	lds	r25, 0x00FC	; 0x8000fc <stm_0_tic+0x1>
+ 1e2:	01 96       	adiw	r24, 0x01	; 1
+ 1e4:	90 93 fc 00 	sts	0x00FC, r25	; 0x8000fc <stm_0_tic+0x1>
+ 1e8:	80 93 fb 00 	sts	0x00FB, r24	; 0x8000fb <stm_0_tic>
+ 1ec:	80 91 f9 00 	lds	r24, 0x00F9	; 0x8000f9 <stm_1_tic>
+ 1f0:	90 91 fa 00 	lds	r25, 0x00FA	; 0x8000fa <stm_1_tic+0x1>
+ 1f4:	01 96       	adiw	r24, 0x01	; 1
+ 1f6:	90 93 fa 00 	sts	0x00FA, r25	; 0x8000fa <stm_1_tic+0x1>
+ 1fa:	80 93 f9 00 	sts	0x00F9, r24	; 0x8000f9 <stm_1_tic>
+ 1fe:	81 e0       	ldi	r24, 0x01	; 1
+ 200:	80 93 f8 00 	sts	0x00F8, r24	; 0x8000f8 <tic_flag>
+ 204:	08 95       	ret
+
+00000206 <_Z13stm_0_timeoutj>:
+bool stm_0_timeout(uint16_t delay_ms) { return stm_0_tic*TMR1_INTERRUPT_PERIOD_ms >= delay_ms; }
+ 206:	40 91 fb 00 	lds	r20, 0x00FB	; 0x8000fb <stm_0_tic>
+ 20a:	50 91 fc 00 	lds	r21, 0x00FC	; 0x8000fc <stm_0_tic+0x1>
+ 20e:	21 e0       	ldi	r18, 0x01	; 1
+ 210:	48 17       	cp	r20, r24
+ 212:	59 07       	cpc	r21, r25
+ 214:	08 f4       	brcc	.+2      	; 0x218 <_Z13stm_0_timeoutj+0x12>
+ 216:	20 e0       	ldi	r18, 0x00	; 0
+ 218:	82 2f       	mov	r24, r18
+ 21a:	08 95       	ret
+
+0000021c <_Z11condition_0v>:
+
+void action0_tic_reset()	{ stm_0_tic = 0; }
+void action1_tic_reset()	{ stm_1_tic = 0; }
+
+bool condition_0() { 
+	return stm_0_timeout(STATE0_PERIOD_msec);
+ 21c:	84 ea       	ldi	r24, 0xA4	; 164
+ 21e:	91 e0       	ldi	r25, 0x01	; 1
+ 220:	f2 df       	rcall	.-28     	; 0x206 <_Z13stm_0_timeoutj>
+	 }
+ 222:	08 95       	ret
+
+00000224 <_Z11condition_3v>:
+	return stm_1_timeout(STATE2_PERIOD_msec);
+}
+Transaction tr2(condition_2,action1_tic_reset);
+
+bool condition_3() {
+	return stm_0_timeout(STATE3_PERIOD_msec);
+ 224:	84 ea       	ldi	r24, 0xA4	; 164
+ 226:	91 e0       	ldi	r25, 0x01	; 1
+ 228:	ee df       	rcall	.-36     	; 0x206 <_Z13stm_0_timeoutj>
+}
+ 22a:	08 95       	ret
+
+0000022c <_Z13stm_1_timeoutj>:
+///////////////////////////////////////////////////////////
+//	TIC SETTING	///////////////////////////////////////////
+
+void TMR1_Interrupt() { ++stm_0_tic; ++stm_1_tic; tic_flag = 1; }
+bool stm_0_timeout(uint16_t delay_ms) { return stm_0_tic*TMR1_INTERRUPT_PERIOD_ms >= delay_ms; }
+bool stm_1_timeout(uint16_t delay_ms) { return stm_1_tic*TMR1_INTERRUPT_PERIOD_ms >= delay_ms; }
+ 22c:	40 91 f9 00 	lds	r20, 0x00F9	; 0x8000f9 <stm_1_tic>
+ 230:	50 91 fa 00 	lds	r21, 0x00FA	; 0x8000fa <stm_1_tic+0x1>
+ 234:	21 e0       	ldi	r18, 0x01	; 1
+ 236:	48 17       	cp	r20, r24
+ 238:	59 07       	cpc	r21, r25
+ 23a:	08 f4       	brcc	.+2      	; 0x23e <_Z13stm_1_timeoutj+0x12>
+ 23c:	20 e0       	ldi	r18, 0x00	; 0
+ 23e:	82 2f       	mov	r24, r18
+ 240:	08 95       	ret
+
+00000242 <_Z11condition_1v>:
+	return stm_0_timeout(STATE0_PERIOD_msec);
+	 }
+Transaction tr0(condition_0,action0_tic_reset);
+
+bool condition_1() { 
+	return stm_1_timeout(STATE1_PERIOD_msec); 
+ 242:	84 e6       	ldi	r24, 0x64	; 100
+ 244:	90 e0       	ldi	r25, 0x00	; 0
+ 246:	f2 df       	rcall	.-28     	; 0x22c <_Z13stm_1_timeoutj>
+	}
+ 248:	08 95       	ret
+
+0000024a <_Z11condition_2v>:
+Transaction tr1(condition_1,action1_tic_reset);
+
+bool condition_2() {
+	return stm_1_timeout(STATE2_PERIOD_msec);
+ 24a:	8e e1       	ldi	r24, 0x1E	; 30
+ 24c:	90 e0       	ldi	r25, 0x00	; 0
+ 24e:	ee df       	rcall	.-36     	; 0x22c <_Z13stm_1_timeoutj>
+}
+ 250:	08 95       	ret
+
+00000252 <main>:
+
+StateMachine stm[2] {&state_0,&state_1};
+
+
+int main(void)
+{
+ 252:	cf 93       	push	r28
+ 254:	df 93       	push	r29
+ 256:	cd b7       	in	r28, 0x3d	; 61
+ 258:	de b7       	in	r29, 0x3e	; 62
+ 25a:	28 97       	sbiw	r28, 0x08	; 8
+ 25c:	0f b6       	in	r0, 0x3f	; 63
+ 25e:	f8 94       	cli
+ 260:	de bf       	out	0x3e, r29	; 62
+ 262:	0f be       	out	0x3f, r0	; 63
+ 264:	cd bf       	out	0x3d, r28	; 61
+	system_init();
+ 266:	92 d0       	rcall	.+292    	; 0x38c <_Z11system_initv>
+	 
+	///////////////////////////////////////////////////////////
+
+	state_0.set_function(in_0,out_1);
+ 268:	49 e6       	ldi	r20, 0x69	; 105
+ 26a:	50 e0       	ldi	r21, 0x00	; 0
+ 26c:	69 e5       	ldi	r22, 0x59	; 89
+ 26e:	70 e0       	ldi	r23, 0x00	; 0
+ 270:	84 ee       	ldi	r24, 0xE4	; 228
+ 272:	90 e0       	ldi	r25, 0x00	; 0
+ 274:	c0 d0       	rcall	.+384    	; 0x3f6 <_ZN5State12set_functionEPFvvES1_>
+	state_1.set_function(in_1,out_1);
+ 276:	49 e6       	ldi	r20, 0x69	; 105
+ 278:	50 e0       	ldi	r21, 0x00	; 0
+ 27a:	61 e6       	ldi	r22, 0x61	; 97
+ 27c:	70 e0       	ldi	r23, 0x00	; 0
+ 27e:	80 ed       	ldi	r24, 0xD0	; 208
+ 280:	90 e0       	ldi	r25, 0x00	; 0
+ 282:	b9 d0       	rcall	.+370    	; 0x3f6 <_ZN5State12set_functionEPFvvES1_>
+	state_2.set_function(in_2,out_2);
+ 284:	45 e7       	ldi	r20, 0x75	; 117
+ 286:	50 e0       	ldi	r21, 0x00	; 0
+ 288:	6d e6       	ldi	r22, 0x6D	; 109
+ 28a:	70 e0       	ldi	r23, 0x00	; 0
+ 28c:	8c eb       	ldi	r24, 0xBC	; 188
+ 28e:	90 e0       	ldi	r25, 0x00	; 0
+ 290:	b2 d0       	rcall	.+356    	; 0x3f6 <_ZN5State12set_functionEPFvvES1_>
+	state_3.set_function(in_3,out_3);
+ 292:	41 e8       	ldi	r20, 0x81	; 129
+ 294:	50 e0       	ldi	r21, 0x00	; 0
+ 296:	69 e7       	ldi	r22, 0x79	; 121
+ 298:	70 e0       	ldi	r23, 0x00	; 0
+ 29a:	88 ea       	ldi	r24, 0xA8	; 168
+ 29c:	90 e0       	ldi	r25, 0x00	; 0
+ 29e:	ab d0       	rcall	.+342    	; 0x3f6 <_ZN5State12set_functionEPFvvES1_>
+	
+	Connection*	conns_ARRAY[4];
+	conns_ARRAY[0] = &conn_of_state_0;
+ 2a0:	84 e9       	ldi	r24, 0x94	; 148
+ 2a2:	90 e0       	ldi	r25, 0x00	; 0
+ 2a4:	9a 83       	std	Y+2, r25	; 0x02
+ 2a6:	89 83       	std	Y+1, r24	; 0x01
+	state_0.set_connections(&conns_ARRAY[0],1);
+ 2a8:	41 e0       	ldi	r20, 0x01	; 1
+ 2aa:	50 e0       	ldi	r21, 0x00	; 0
+ 2ac:	be 01       	movw	r22, r28
+ 2ae:	6f 5f       	subi	r22, 0xFF	; 255
+ 2b0:	7f 4f       	sbci	r23, 0xFF	; 255
+ 2b2:	84 ee       	ldi	r24, 0xE4	; 228
+ 2b4:	90 e0       	ldi	r25, 0x00	; 0
+ 2b6:	a5 d0       	rcall	.+330    	; 0x402 <_ZN5State15set_connectionsEPP10Connectionj>
+	
+	conns_ARRAY[1] = &conn_of_state_1;
+ 2b8:	80 e9       	ldi	r24, 0x90	; 144
+ 2ba:	90 e0       	ldi	r25, 0x00	; 0
+ 2bc:	9c 83       	std	Y+4, r25	; 0x04
+ 2be:	8b 83       	std	Y+3, r24	; 0x03
+	state_1.set_connections(&conns_ARRAY[1],1);
+ 2c0:	41 e0       	ldi	r20, 0x01	; 1
+ 2c2:	50 e0       	ldi	r21, 0x00	; 0
+ 2c4:	be 01       	movw	r22, r28
+ 2c6:	6d 5f       	subi	r22, 0xFD	; 253
+ 2c8:	7f 4f       	sbci	r23, 0xFF	; 255
+ 2ca:	80 ed       	ldi	r24, 0xD0	; 208
+ 2cc:	90 e0       	ldi	r25, 0x00	; 0
+ 2ce:	99 d0       	rcall	.+306    	; 0x402 <_ZN5State15set_connectionsEPP10Connectionj>
+	
+	conns_ARRAY[2] = &conn_of_state_2;
+ 2d0:	8c e8       	ldi	r24, 0x8C	; 140
+ 2d2:	90 e0       	ldi	r25, 0x00	; 0
+ 2d4:	9e 83       	std	Y+6, r25	; 0x06
+ 2d6:	8d 83       	std	Y+5, r24	; 0x05
+	state_2.set_connections(&conns_ARRAY[2],1);
+ 2d8:	41 e0       	ldi	r20, 0x01	; 1
+ 2da:	50 e0       	ldi	r21, 0x00	; 0
+ 2dc:	be 01       	movw	r22, r28
+ 2de:	6b 5f       	subi	r22, 0xFB	; 251
+ 2e0:	7f 4f       	sbci	r23, 0xFF	; 255
+ 2e2:	8c eb       	ldi	r24, 0xBC	; 188
+ 2e4:	90 e0       	ldi	r25, 0x00	; 0
+ 2e6:	8d d0       	rcall	.+282    	; 0x402 <_ZN5State15set_connectionsEPP10Connectionj>
+	
+	conns_ARRAY[3] = &conn_of_state_3;
+ 2e8:	88 e8       	ldi	r24, 0x88	; 136
+ 2ea:	90 e0       	ldi	r25, 0x00	; 0
+ 2ec:	98 87       	std	Y+8, r25	; 0x08
+ 2ee:	8f 83       	std	Y+7, r24	; 0x07
+	state_3.set_connections(&conns_ARRAY[3],1);
+ 2f0:	41 e0       	ldi	r20, 0x01	; 1
+ 2f2:	50 e0       	ldi	r21, 0x00	; 0
+ 2f4:	be 01       	movw	r22, r28
+ 2f6:	69 5f       	subi	r22, 0xF9	; 249
+ 2f8:	7f 4f       	sbci	r23, 0xFF	; 255
+ 2fa:	88 ea       	ldi	r24, 0xA8	; 168
+ 2fc:	90 e0       	ldi	r25, 0x00	; 0
+ 2fe:	81 d0       	rcall	.+258    	; 0x402 <_ZN5State15set_connectionsEPP10Connectionj>
+			
+	state_0.set_upper_stm(&stm[0]);
+ 300:	60 e8       	ldi	r22, 0x80	; 128
+ 302:	70 e0       	ldi	r23, 0x00	; 0
+ 304:	84 ee       	ldi	r24, 0xE4	; 228
+ 306:	90 e0       	ldi	r25, 0x00	; 0
+ 308:	82 d0       	rcall	.+260    	; 0x40e <_ZN5State13set_upper_stmEP12StateMachine>
+	state_1.set_upper_stm(&stm[1]);
+ 30a:	64 e8       	ldi	r22, 0x84	; 132
+ 30c:	70 e0       	ldi	r23, 0x00	; 0
+ 30e:	80 ed       	ldi	r24, 0xD0	; 208
+ 310:	90 e0       	ldi	r25, 0x00	; 0
+ 312:	7d d0       	rcall	.+250    	; 0x40e <_ZN5State13set_upper_stmEP12StateMachine>
+	state_2.set_upper_stm(&stm[1]);
+ 314:	64 e8       	ldi	r22, 0x84	; 132
+ 316:	70 e0       	ldi	r23, 0x00	; 0
+ 318:	8c eb       	ldi	r24, 0xBC	; 188
+ 31a:	90 e0       	ldi	r25, 0x00	; 0
+ 31c:	78 d0       	rcall	.+240    	; 0x40e <_ZN5State13set_upper_stmEP12StateMachine>
+	state_3.set_upper_stm(&stm[0]);
+ 31e:	60 e8       	ldi	r22, 0x80	; 128
+ 320:	70 e0       	ldi	r23, 0x00	; 0
+ 322:	88 ea       	ldi	r24, 0xA8	; 168
+ 324:	90 e0       	ldi	r25, 0x00	; 0
+ 326:	73 d0       	rcall	.+230    	; 0x40e <_ZN5State13set_upper_stmEP12StateMachine>
+	
+	state_0.set_inner_stm(&stm[1]);
+ 328:	64 e8       	ldi	r22, 0x84	; 132
+ 32a:	70 e0       	ldi	r23, 0x00	; 0
+ 32c:	84 ee       	ldi	r24, 0xE4	; 228
+ 32e:	90 e0       	ldi	r25, 0x00	; 0
+ 330:	72 d0       	rcall	.+228    	; 0x416 <_ZN5State13set_inner_stmEP12StateMachine>
+	
+	stm[0].start();
+ 332:	60 e0       	ldi	r22, 0x00	; 0
+ 334:	70 e0       	ldi	r23, 0x00	; 0
+ 336:	80 e8       	ldi	r24, 0x80	; 128
+ 338:	90 e0       	ldi	r25, 0x00	; 0
+ 33a:	77 d0       	rcall	.+238    	; 0x42a <_ZN12StateMachine5startEP5State>
+	/////////////////////////////////////////////////////////
+	
+	TMR1_Start();
+ 33c:	40 d0       	rcall	.+128    	; 0x3be <_Z10TMR1_Startv>
+	sei();
+ 33e:	78 94       	sei
+
+	while (1) 
+	{
+		if(tic_flag) {
+ 340:	80 91 f8 00 	lds	r24, 0x00F8	; 0x8000f8 <tic_flag>
+ 344:	88 23       	and	r24, r24
+ 346:	e1 f3       	breq	.-8      	; 0x340 <__stack+0xe1>
+			stm[0].check_event();
+ 348:	80 e8       	ldi	r24, 0x80	; 128
+ 34a:	90 e0       	ldi	r25, 0x00	; 0
+ 34c:	98 d0       	rcall	.+304    	; 0x47e <_ZN12StateMachine11check_eventEv>
+			stm[1].check_event();
+ 34e:	84 e8       	ldi	r24, 0x84	; 132
+ 350:	90 e0       	ldi	r25, 0x00	; 0
+ 352:	95 d0       	rcall	.+298    	; 0x47e <_ZN12StateMachine11check_eventEv>
+			
+			tic_flag  = 0;
+ 354:	10 92 f8 00 	sts	0x00F8, r1	; 0x8000f8 <tic_flag>
+			PIN_SET_TOGGLE(LED_TIC_COUNTER);
+ 358:	98 b3       	in	r25, 0x18	; 24
+ 35a:	81 e0       	ldi	r24, 0x01	; 1
+ 35c:	89 27       	eor	r24, r25
+ 35e:	88 bb       	out	0x18, r24	; 24
+ 360:	ef cf       	rjmp	.-34     	; 0x340 <__stack+0xe1>
+
+00000362 <_GLOBAL__sub_I_stm_0_tic>:
+		}
+	}
+}
+ 362:	6f ef       	ldi	r22, 0xFF	; 255
+ 364:	7f ef       	ldi	r23, 0xFF	; 255
+ 366:	81 e0       	ldi	r24, 0x01	; 1
+ 368:	90 e0       	ldi	r25, 0x00	; 0
+ 36a:	d9 de       	rcall	.-590    	; 0x11e <_Z41__static_initialization_and_destruction_0ii>
+ 36c:	08 95       	ret
+
+0000036e <_Z19GPIO_initializationv>:
+
+#include "driver_init.h"
+
+void GPIO_initialization()
+{
+	PIN_OUTPUT_DIRECTION(LED_TIC_COUNTER);
+ 36e:	87 b3       	in	r24, 0x17	; 23
+ 370:	81 60       	ori	r24, 0x01	; 1
+ 372:	87 bb       	out	0x17, r24	; 23
+	PIN_OUTPUT_DIRECTION(LED_RED);
+ 374:	87 b3       	in	r24, 0x17	; 23
+ 376:	82 60       	ori	r24, 0x02	; 2
+ 378:	87 bb       	out	0x17, r24	; 23
+	PIN_OUTPUT_DIRECTION(LED_YELLOW);
+ 37a:	87 b3       	in	r24, 0x17	; 23
+ 37c:	84 60       	ori	r24, 0x04	; 4
+ 37e:	87 bb       	out	0x17, r24	; 23
+	PIN_OUTPUT_DIRECTION(LED_GREEN);
+ 380:	87 b3       	in	r24, 0x17	; 23
+ 382:	88 60       	ori	r24, 0x08	; 8
+ 384:	87 bb       	out	0x17, r24	; 23
+ 386:	08 95       	ret
+
+00000388 <_Z22TIMER_1_initializationv>:
+}
+
+void TIMER_1_initialization()
+{
+	TMR1_Init();	
+ 388:	04 d0       	rcall	.+8      	; 0x392 <_Z9TMR1_Initv>
+ 38a:	08 95       	ret
+
+0000038c <_Z11system_initv>:
+}
+
+
+void system_init()
+{
+	GPIO_initialization();
+ 38c:	f0 df       	rcall	.-32     	; 0x36e <_Z19GPIO_initializationv>
+	TIMER_1_initialization();
+ 38e:	fc df       	rcall	.-8      	; 0x388 <_Z22TIMER_1_initializationv>
+ 390:	08 95       	ret
+
+00000392 <_Z9TMR1_Initv>:
+// INIT	//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+void TMR1_Init() 
+{	
+	TCCR1 = 0;
+ 392:	10 be       	out	0x30, r1	; 48
+
+	TMR1_CTC_MODE(ENABLE);
+ 394:	80 b7       	in	r24, 0x30	; 48
+ 396:	80 68       	ori	r24, 0x80	; 128
+ 398:	80 bf       	out	0x30, r24	; 48
+	OCR1C = TMR1_OCR1C_PRESET;
+ 39a:	8d e7       	ldi	r24, 0x7D	; 125
+ 39c:	8d bd       	out	0x2d, r24	; 45
+	OCR1A = TMR1_OCR1A_PRESET;
+ 39e:	8a e7       	ldi	r24, 0x7A	; 122
+ 3a0:	8e bd       	out	0x2e, r24	; 46
+	
+	TMR1_PWM1A_MODE(DISABLE);
+ 3a2:	80 b7       	in	r24, 0x30	; 48
+ 3a4:	80 bf       	out	0x30, r24	; 48
+	TMR1_PWM1B_MODE(DISABLE);
+ 3a6:	8c b5       	in	r24, 0x2c	; 44
+ 3a8:	8c bd       	out	0x2c, r24	; 44
+	
+	TMR1_OC1A_DISCONNECT();
+ 3aa:	80 b7       	in	r24, 0x30	; 48
+ 3ac:	8f 7c       	andi	r24, 0xCF	; 207
+ 3ae:	80 bf       	out	0x30, r24	; 48
+	TMR1_OC1B_DISCONNECT();
+ 3b0:	8c b5       	in	r24, 0x2c	; 44
+ 3b2:	8f 7c       	andi	r24, 0xCF	; 207
+ 3b4:	8c bd       	out	0x2c, r24	; 44
+	
+	TMR1_INTERRUPT_OCIE1A(ENABLE);
+ 3b6:	89 b7       	in	r24, 0x39	; 57
+ 3b8:	80 64       	ori	r24, 0x40	; 64
+ 3ba:	89 bf       	out	0x39, r24	; 57
+ 3bc:	08 95       	ret
+
+000003be <_Z10TMR1_Startv>:
+}
+
+void TMR1_Start() {
+	TCCR1 |= TMR1_PRESCLALER;
+ 3be:	80 b7       	in	r24, 0x30	; 48
+ 3c0:	87 60       	ori	r24, 0x07	; 7
+ 3c2:	80 bf       	out	0x30, r24	; 48
+ 3c4:	08 95       	ret
+
+000003c6 <_ZN10ConnectionC1EP11TransactionP5State>:
+ 3c6:	fc 01       	movw	r30, r24
+ 3c8:	71 83       	std	Z+1, r23	; 0x01
+ 3ca:	60 83       	st	Z, r22
+ 3cc:	53 83       	std	Z+3, r21	; 0x03
+ 3ce:	42 83       	std	Z+2, r20	; 0x02
+ 3d0:	08 95       	ret
+
+000003d2 <_ZN5StateC1EPKc>:
+#include "State.h"
+#include <string.h>
+
+
+State::State(char const* nameID)
+ 3d2:	28 e0       	ldi	r18, 0x08	; 8
+ 3d4:	fc 01       	movw	r30, r24
+ 3d6:	11 92       	st	Z+, r1
+ 3d8:	2a 95       	dec	r18
+ 3da:	e9 f7       	brne	.-6      	; 0x3d6 <_ZN5StateC1EPKc+0x4>
+ 3dc:	fc 01       	movw	r30, r24
+ 3de:	14 86       	std	Z+12, r1	; 0x0c
+ 3e0:	15 86       	std	Z+13, r1	; 0x0d
+ 3e2:	16 86       	std	Z+14, r1	; 0x0e
+ 3e4:	17 86       	std	Z+15, r1	; 0x0f
+ 3e6:	11 8a       	std	Z+17, r1	; 0x11
+ 3e8:	10 8a       	std	Z+16, r1	; 0x10
+ 3ea:	13 8a       	std	Z+19, r1	; 0x13
+ 3ec:	12 8a       	std	Z+18, r1	; 0x12
+{
+	strncpy(name, nameID, 8);
+ 3ee:	48 e0       	ldi	r20, 0x08	; 8
+ 3f0:	50 e0       	ldi	r21, 0x00	; 0
+ 3f2:	d2 d0       	rcall	.+420    	; 0x598 <strncpy>
+ 3f4:	08 95       	ret
+
+000003f6 <_ZN5State12set_functionEPFvvES1_>:
+}
+
+void State::set_function(state_func in_func, state_func out_func)
+{
+	 in = in_func;
+ 3f6:	fc 01       	movw	r30, r24
+ 3f8:	71 87       	std	Z+9, r23	; 0x09
+ 3fa:	60 87       	std	Z+8, r22	; 0x08
+	 out = out_func;
+ 3fc:	53 87       	std	Z+11, r21	; 0x0b
+ 3fe:	42 87       	std	Z+10, r20	; 0x0a
+ 400:	08 95       	ret
+
+00000402 <_ZN5State15set_connectionsEPP10Connectionj>:
+}
+
+void State::set_connections(Connection** array, uint16_t size)
+{
+	connections.buff = array;
+ 402:	fc 01       	movw	r30, r24
+ 404:	75 87       	std	Z+13, r23	; 0x0d
+ 406:	64 87       	std	Z+12, r22	; 0x0c
+	connections.SIZE = size;
+ 408:	57 87       	std	Z+15, r21	; 0x0f
+ 40a:	46 87       	std	Z+14, r20	; 0x0e
+ 40c:	08 95       	ret
+
+0000040e <_ZN5State13set_upper_stmEP12StateMachine>:
+}
+
+void State::set_upper_stm(StateMachine* stm)
+{
+	upper_stm = stm;
+ 40e:	fc 01       	movw	r30, r24
+ 410:	71 8b       	std	Z+17, r23	; 0x11
+ 412:	60 8b       	std	Z+16, r22	; 0x10
+ 414:	08 95       	ret
+
+00000416 <_ZN5State13set_inner_stmEP12StateMachine>:
+}
+
+void State::set_inner_stm(StateMachine* stm)
+{
+	inner_stm = stm;
+ 416:	fc 01       	movw	r30, r24
+ 418:	73 8b       	std	Z+19, r23	; 0x13
+ 41a:	62 8b       	std	Z+18, r22	; 0x12
+ 41c:	08 95       	ret
+
+0000041e <_ZN12StateMachineC1EP5State>:
+#include "StateMachine.h"
+
+StateMachine::StateMachine(State* initial) {
+ 41e:	fc 01       	movw	r30, r24
+ 420:	13 82       	std	Z+3, r1	; 0x03
+ 422:	12 82       	std	Z+2, r1	; 0x02
+    initial_state = initial;
+ 424:	71 83       	std	Z+1, r23	; 0x01
+ 426:	60 83       	st	Z, r22
+ 428:	08 95       	ret
+
+0000042a <_ZN12StateMachine5startEP5State>:
+}
+
+void StateMachine::start(State* state)
+{
+ 42a:	cf 93       	push	r28
+ 42c:	df 93       	push	r29
+ 42e:	ec 01       	movw	r28, r24
+    current_state = (state) ? state : initial_state;
+ 430:	61 15       	cp	r22, r1
+ 432:	71 05       	cpc	r23, r1
+ 434:	19 f4       	brne	.+6      	; 0x43c <_ZN12StateMachine5startEP5State+0x12>
+ 436:	e8 81       	ld	r30, Y
+ 438:	f9 81       	ldd	r31, Y+1	; 0x01
+ 43a:	01 c0       	rjmp	.+2      	; 0x43e <_ZN12StateMachine5startEP5State+0x14>
+ 43c:	fb 01       	movw	r30, r22
+ 43e:	fb 83       	std	Y+3, r31	; 0x03
+ 440:	ea 83       	std	Y+2, r30	; 0x02
+    current_state->in();
+ 442:	00 84       	ldd	r0, Z+8	; 0x08
+ 444:	f1 85       	ldd	r31, Z+9	; 0x09
+ 446:	e0 2d       	mov	r30, r0
+ 448:	09 95       	icall
+	if(current_state->inner_stm) current_state->inner_stm->start();
+ 44a:	ea 81       	ldd	r30, Y+2	; 0x02
+ 44c:	fb 81       	ldd	r31, Y+3	; 0x03
+ 44e:	82 89       	ldd	r24, Z+18	; 0x12
+ 450:	93 89       	ldd	r25, Z+19	; 0x13
+ 452:	00 97       	sbiw	r24, 0x00	; 0
+ 454:	19 f0       	breq	.+6      	; 0x45c <_ZN12StateMachine5startEP5State+0x32>
+ 456:	60 e0       	ldi	r22, 0x00	; 0
+ 458:	70 e0       	ldi	r23, 0x00	; 0
+ 45a:	e7 df       	rcall	.-50     	; 0x42a <_ZN12StateMachine5startEP5State>
+}
+ 45c:	df 91       	pop	r29
+ 45e:	cf 91       	pop	r28
+ 460:	08 95       	ret
+
+00000462 <_ZN12StateMachine4stopEv>:
+
+void StateMachine::stop()
+{
+ 462:	cf 93       	push	r28
+ 464:	df 93       	push	r29
+ 466:	ec 01       	movw	r28, r24
+	current_state->out();
+ 468:	ea 81       	ldd	r30, Y+2	; 0x02
+ 46a:	fb 81       	ldd	r31, Y+3	; 0x03
+ 46c:	02 84       	ldd	r0, Z+10	; 0x0a
+ 46e:	f3 85       	ldd	r31, Z+11	; 0x0b
+ 470:	e0 2d       	mov	r30, r0
+ 472:	09 95       	icall
+	current_state = nullptr;
+ 474:	1b 82       	std	Y+3, r1	; 0x03
+ 476:	1a 82       	std	Y+2, r1	; 0x02
+}
+ 478:	df 91       	pop	r29
+ 47a:	cf 91       	pop	r28
+ 47c:	08 95       	ret
+
+0000047e <_ZN12StateMachine11check_eventEv>:
+
+void StateMachine::check_event() {
+ 47e:	ef 92       	push	r14
+ 480:	ff 92       	push	r15
+ 482:	0f 93       	push	r16
+ 484:	1f 93       	push	r17
+ 486:	cf 93       	push	r28
+ 488:	df 93       	push	r29
+ 48a:	ec 01       	movw	r28, r24
+	for (unsigned i = 0; i < current_state->connections.SIZE; i++)
+ 48c:	00 e0       	ldi	r16, 0x00	; 0
+ 48e:	10 e0       	ldi	r17, 0x00	; 0
+ 490:	ea 81       	ldd	r30, Y+2	; 0x02
+ 492:	fb 81       	ldd	r31, Y+3	; 0x03
+ 494:	86 85       	ldd	r24, Z+14	; 0x0e
+ 496:	97 85       	ldd	r25, Z+15	; 0x0f
+ 498:	08 17       	cp	r16, r24
+ 49a:	19 07       	cpc	r17, r25
+ 49c:	08 f0       	brcs	.+2      	; 0x4a0 <_ZN12StateMachine11check_eventEv+0x22>
+ 49e:	69 c0       	rjmp	.+210    	; 0x572 <_ZN12StateMachine11check_eventEv+0xf4>
+	{
+		if (current_state 
+			&& current_state->connections.buff[i]->trans->cond())
+ 4a0:	30 97       	sbiw	r30, 0x00	; 0
+ 4a2:	99 f0       	breq	.+38     	; 0x4ca <_ZN12StateMachine11check_eventEv+0x4c>
+ 4a4:	04 84       	ldd	r0, Z+12	; 0x0c
+ 4a6:	f5 85       	ldd	r31, Z+13	; 0x0d
+ 4a8:	e0 2d       	mov	r30, r0
+ 4aa:	c8 01       	movw	r24, r16
+ 4ac:	88 0f       	add	r24, r24
+ 4ae:	99 1f       	adc	r25, r25
+ 4b0:	e8 0f       	add	r30, r24
+ 4b2:	f9 1f       	adc	r31, r25
+ 4b4:	01 90       	ld	r0, Z+
+ 4b6:	f0 81       	ld	r31, Z
+ 4b8:	e0 2d       	mov	r30, r0
+ 4ba:	01 90       	ld	r0, Z+
+ 4bc:	f0 81       	ld	r31, Z
+ 4be:	e0 2d       	mov	r30, r0
+ 4c0:	01 90       	ld	r0, Z+
+ 4c2:	f0 81       	ld	r31, Z
+ 4c4:	e0 2d       	mov	r30, r0
+ 4c6:	09 95       	icall
+ 4c8:	01 c0       	rjmp	.+2      	; 0x4cc <_ZN12StateMachine11check_eventEv+0x4e>
+ 4ca:	80 e0       	ldi	r24, 0x00	; 0
+}
+
+void StateMachine::check_event() {
+	for (unsigned i = 0; i < current_state->connections.SIZE; i++)
+	{
+		if (current_state 
+ 4cc:	88 23       	and	r24, r24
+ 4ce:	09 f4       	brne	.+2      	; 0x4d2 <_ZN12StateMachine11check_eventEv+0x54>
+ 4d0:	4d c0       	rjmp	.+154    	; 0x56c <_ZN12StateMachine11check_eventEv+0xee>
+			&& current_state->connections.buff[i]->trans->cond())
+		{
+			//если состояние имеет внутреннюю StateMachine, то ее останавливаем
+			if( current_state->inner_stm ) current_state->inner_stm->stop();
+ 4d2:	ea 81       	ldd	r30, Y+2	; 0x02
+ 4d4:	fb 81       	ldd	r31, Y+3	; 0x03
+ 4d6:	82 89       	ldd	r24, Z+18	; 0x12
+ 4d8:	93 89       	ldd	r25, Z+19	; 0x13
+ 4da:	00 97       	sbiw	r24, 0x00	; 0
+ 4dc:	09 f0       	breq	.+2      	; 0x4e0 <_ZN12StateMachine11check_eventEv+0x62>
+ 4de:	c1 df       	rcall	.-126    	; 0x462 <_ZN12StateMachine4stopEv>
+			
+			//выходим из состояния
+			current_state->out();
+ 4e0:	ea 81       	ldd	r30, Y+2	; 0x02
+ 4e2:	fb 81       	ldd	r31, Y+3	; 0x03
+ 4e4:	02 84       	ldd	r0, Z+10	; 0x0a
+ 4e6:	f3 85       	ldd	r31, Z+11	; 0x0b
+ 4e8:	e0 2d       	mov	r30, r0
+ 4ea:	09 95       	icall
+			
+			//осуществляем переход в новое состояние по назначенной транзакции
+			current_state->connections.buff[i]->trans->act();
+ 4ec:	ea 81       	ldd	r30, Y+2	; 0x02
+ 4ee:	fb 81       	ldd	r31, Y+3	; 0x03
+ 4f0:	04 84       	ldd	r0, Z+12	; 0x0c
+ 4f2:	f5 85       	ldd	r31, Z+13	; 0x0d
+ 4f4:	e0 2d       	mov	r30, r0
+ 4f6:	78 01       	movw	r14, r16
+ 4f8:	ee 0c       	add	r14, r14
+ 4fa:	ff 1c       	adc	r15, r15
+ 4fc:	ee 0d       	add	r30, r14
+ 4fe:	ff 1d       	adc	r31, r15
+ 500:	01 90       	ld	r0, Z+
+ 502:	f0 81       	ld	r31, Z
+ 504:	e0 2d       	mov	r30, r0
+ 506:	01 90       	ld	r0, Z+
+ 508:	f0 81       	ld	r31, Z
+ 50a:	e0 2d       	mov	r30, r0
+ 50c:	02 80       	ldd	r0, Z+2	; 0x02
+ 50e:	f3 81       	ldd	r31, Z+3	; 0x03
+ 510:	e0 2d       	mov	r30, r0
+ 512:	09 95       	icall
+			current_state = current_state->connections.buff[i]->to_State;
+ 514:	ea 81       	ldd	r30, Y+2	; 0x02
+ 516:	fb 81       	ldd	r31, Y+3	; 0x03
+ 518:	84 85       	ldd	r24, Z+12	; 0x0c
+ 51a:	95 85       	ldd	r25, Z+13	; 0x0d
+ 51c:	fc 01       	movw	r30, r24
+ 51e:	ee 0d       	add	r30, r14
+ 520:	ff 1d       	adc	r31, r15
+ 522:	01 90       	ld	r0, Z+
+ 524:	f0 81       	ld	r31, Z
+ 526:	e0 2d       	mov	r30, r0
+ 528:	02 80       	ldd	r0, Z+2	; 0x02
+ 52a:	f3 81       	ldd	r31, Z+3	; 0x03
+ 52c:	e0 2d       	mov	r30, r0
+ 52e:	fb 83       	std	Y+3, r31	; 0x03
+ 530:	ea 83       	std	Y+2, r30	; 0x02
+			
+			//если новое состояние находится в рамках этой же StateMachine,
+			//то входим в состояние
+			if( current_state->upper_stm == this) 
+ 532:	80 89       	ldd	r24, Z+16	; 0x10
+ 534:	91 89       	ldd	r25, Z+17	; 0x11
+ 536:	c8 17       	cp	r28, r24
+ 538:	d9 07       	cpc	r29, r25
+ 53a:	21 f4       	brne	.+8      	; 0x544 <_ZN12StateMachine11check_eventEv+0xc6>
+				current_state->in();
+ 53c:	00 84       	ldd	r0, Z+8	; 0x08
+ 53e:	f1 85       	ldd	r31, Z+9	; 0x09
+ 540:	e0 2d       	mov	r30, r0
+ 542:	09 95       	icall
+				if( current_state->inner_stm ) 
+ 544:	ea 80       	ldd	r14, Y+2	; 0x02
+ 546:	fb 80       	ldd	r15, Y+3	; 0x03
+ 548:	f7 01       	movw	r30, r14
+ 54a:	82 89       	ldd	r24, Z+18	; 0x12
+ 54c:	93 89       	ldd	r25, Z+19	; 0x13
+ 54e:	00 97       	sbiw	r24, 0x00	; 0
+ 550:	19 f0       	breq	.+6      	; 0x558 <_ZN12StateMachine11check_eventEv+0xda>
+					current_state->inner_stm->start(current_state);
+ 552:	b7 01       	movw	r22, r14
+ 554:	6a df       	rcall	.-300    	; 0x42a <_ZN12StateMachine5startEP5State>
+ 556:	0a c0       	rjmp	.+20     	; 0x56c <_ZN12StateMachine11check_eventEv+0xee>
+			//иначе, останавливаем текущюю StateMachine и 
+			//запускаем новую, согласно нового состояния
+			else 
+			{
+				State* tmp = current_state;
+				stop();
+ 558:	ce 01       	movw	r24, r28
+ 55a:	83 df       	rcall	.-250    	; 0x462 <_ZN12StateMachine4stopEv>
+				if(tmp) tmp->upper_stm->start(tmp);
+ 55c:	e1 14       	cp	r14, r1
+ 55e:	f1 04       	cpc	r15, r1
+ 560:	29 f0       	breq	.+10     	; 0x56c <_ZN12StateMachine11check_eventEv+0xee>
+ 562:	b7 01       	movw	r22, r14
+ 564:	f7 01       	movw	r30, r14
+ 566:	80 89       	ldd	r24, Z+16	; 0x10
+ 568:	91 89       	ldd	r25, Z+17	; 0x11
+ 56a:	5f df       	rcall	.-322    	; 0x42a <_ZN12StateMachine5startEP5State>
+	current_state->out();
+	current_state = nullptr;
+}
+
+void StateMachine::check_event() {
+	for (unsigned i = 0; i < current_state->connections.SIZE; i++)
+ 56c:	0f 5f       	subi	r16, 0xFF	; 255
+ 56e:	1f 4f       	sbci	r17, 0xFF	; 255
+ 570:	8f cf       	rjmp	.-226    	; 0x490 <_ZN12StateMachine11check_eventEv+0x12>
+				stop();
+				if(tmp) tmp->upper_stm->start(tmp);
+			}
+		}
+	}
+}
+ 572:	df 91       	pop	r29
+ 574:	cf 91       	pop	r28
+ 576:	1f 91       	pop	r17
+ 578:	0f 91       	pop	r16
+ 57a:	ff 90       	pop	r15
+ 57c:	ef 90       	pop	r14
+ 57e:	08 95       	ret
+
+00000580 <_ZN11TransactionC1EPFbvEPFvvE>:
+ 580:	fc 01       	movw	r30, r24
+ 582:	71 83       	std	Z+1, r23	; 0x01
+ 584:	60 83       	st	Z, r22
+ 586:	53 83       	std	Z+3, r21	; 0x03
+ 588:	42 83       	std	Z+2, r20	; 0x02
+ 58a:	08 95       	ret
+
+0000058c <__tablejump2__>:
+ 58c:	ee 0f       	add	r30, r30
+ 58e:	ff 1f       	adc	r31, r31
+ 590:	05 90       	lpm	r0, Z+
+ 592:	f4 91       	lpm	r31, Z
+ 594:	e0 2d       	mov	r30, r0
+ 596:	09 94       	ijmp
+
+00000598 <strncpy>:
+ 598:	fb 01       	movw	r30, r22
+ 59a:	dc 01       	movw	r26, r24
+ 59c:	41 50       	subi	r20, 0x01	; 1
+ 59e:	50 40       	sbci	r21, 0x00	; 0
+ 5a0:	48 f0       	brcs	.+18     	; 0x5b4 <strncpy+0x1c>
+ 5a2:	01 90       	ld	r0, Z+
+ 5a4:	0d 92       	st	X+, r0
+ 5a6:	00 20       	and	r0, r0
+ 5a8:	c9 f7       	brne	.-14     	; 0x59c <strncpy+0x4>
+ 5aa:	01 c0       	rjmp	.+2      	; 0x5ae <strncpy+0x16>
+ 5ac:	1d 92       	st	X+, r1
+ 5ae:	41 50       	subi	r20, 0x01	; 1
+ 5b0:	50 40       	sbci	r21, 0x00	; 0
+ 5b2:	e0 f7       	brcc	.-8      	; 0x5ac <strncpy+0x14>
+ 5b4:	08 95       	ret
+
+000005b6 <_exit>:
+ 5b6:	f8 94       	cli
+
+000005b8 <__stop_program>:
+ 5b8:	ff cf       	rjmp	.-2      	; 0x5b8 <__stop_program>
