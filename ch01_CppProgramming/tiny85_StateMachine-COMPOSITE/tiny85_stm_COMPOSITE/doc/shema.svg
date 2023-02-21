@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Создано Microsoft Visio, экспорт SVG shema.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="11.6929in" height="8.26772in"
+		viewBox="0 0 841.89 595.276" xml:space="preserve" color-interpolation-filters="sRGB" class="st14">
+	<v:documentProperties v:langID="1049" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(0):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#d8d8d8;stroke:#c8c8c8;stroke-width:0.25}
+		.st2 {fill:none;stroke:#c8c8c8;stroke-width:2}
+		.st3 {fill:#000000;font-family:Calibri;font-size:1.5em}
+		.st4 {fill:#c00000;stroke:#c8c8c8;stroke-width:1.5}
+		.st5 {fill:#feffff;font-family:Calibri;font-size:1.5em}
+		.st6 {fill:#bf9000;stroke:#c8c8c8;stroke-width:1.5}
+		.st7 {fill:#a8d08d;stroke:#c8c8c8;stroke-width:2}
+		.st8 {marker-end:url(#mrkr4-20);stroke:#4672c4;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st9 {fill:#4672c4;fill-opacity:1;stroke:#4672c4;stroke-opacity:1;stroke-width:0.28409090909091}
+		.st10 {fill:#ffffff;stroke:none;stroke-linecap:butt}
+		.st11 {fill:#3c63ac;font-family:Calibri;font-size:1.00001em}
+		.st12 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st13 {marker-end:url(#mrkr4-49);stroke:#4672c4;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st14 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-20" class="st9" v:arrowType="4" v:arrowSize="2" v:setback="6.68" refX="-6.68" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-3.52,-3.52) "/>
+		</marker>
+		<marker id="mrkr4-49" class="st9" v:arrowType="4" v:arrowSize="2" v:setback="7.04" refX="-7.04" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-3.52,-3.52) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+		</v:userDefs>
+		<title>Страница-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="Соединительная линия" v:index="0"/>
+		<g id="shape15-1" v:mID="15" v:groupContext="shape" transform="translate(115.376,-198.425)">
+			<title>Круг</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 496.06 A110.551 99.2126 0 0 1 221.1 496.06 A110.551 99.2126 0 1 1 -0 496.06 Z" class="st1"/>
+		</g>
+		<g id="shape5-3" v:mID="5" v:groupContext="shape" transform="translate(99.2126,-159.244)">
+			<title>Поле.5</title>
+			<desc>SUPER</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
+			<v:textRect cx="127.559" cy="456.882" width="255.12" height="276.787"/>
+			<rect x="0" y="318.489" width="255.118" height="276.787" class="st2"/>
+			<text x="4" y="338.69" class="st3" v:langID="1033"><v:paragraph/><v:tabList/>SUPER</text>		</g>
+		<g id="shape3-6" v:mID="3" v:groupContext="shape" transform="translate(176.32,-340.157)">
+			<title>Поле</title>
+			<desc>RED</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="49.6063" cy="579.331" width="99.22" height="31.8898"/>
+			<rect x="0" y="563.386" width="99.2126" height="31.8898" class="st4"/>
+			<text x="34.79" y="584.73" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>RED</text>		</g>
+		<g id="shape4-9" v:mID="4" v:groupContext="shape" transform="translate(176.32,-212.598)">
+			<title>Поле.4</title>
+			<desc>YELLOW</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="49.6063" cy="579.331" width="99.22" height="31.8898"/>
+			<rect x="0" y="563.386" width="99.2126" height="31.8898" class="st6"/>
+			<text x="19.29" y="584.73" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>YELLOW</text>		</g>
+		<g id="shape7-12" v:mID="7" v:groupContext="shape" transform="translate(417.838,-265.039)">
+			<title>Поле.7</title>
+			<desc>GREEN</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="39.1127" cy="562.677" width="78.23" height="65.1968"/>
+			<rect x="0" y="530.079" width="78.2253" height="65.1968" class="st7"/>
+			<text x="13.95" y="568.08" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>GREEN</text>		</g>
+		<g id="shape9-15" v:mID="9" v:groupContext="shape" v:layerMember="0"
+				transform="translate(-418.955,239.173) rotate(-90) scale(-1,1)">
+			<title>Кривая соединительная линия</title>
+			<desc>After_100ms</desc>
+			<v:userDefs>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="58.4646" cy="560.687" width="73.1" height="22.4037" transform="rotate(90)"/>
+			<path d="M0 595.28 L13.13 580.6 L26.87 569.96 L41.24 563.33 L56.22 560.73 L71.82 562.15 L88.04 567.6 L104.87 577.07 L122.33
+						 590.56 L122.6 590.8" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-592.328" y="51.2648" width="63.2815" height="14.4001" transform="rotate(-90)"
+					class="st10"/>
+			<text x="529.05" y="62.06" transform="rotate(-90) scale(-1,1)" class="st11" v:langID="1033"><v:paragraph
+						v:horizAlign="1"/><v:tabList/>After_100ms</text>		</g>
+		<g id="shape10-23" v:mID="10" v:groupContext="shape" v:layerMember="0" transform="translate(-319.743,366.732) rotate(-90)">
+			<title>Кривая соединительная линия.10</title>
+			<desc>After_30ms</desc>
+			<v:userDefs>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="69.0945" cy="631.554" width="67.02" height="22.4037" transform="rotate(90)"/>
+			<path d="M0 595.28 L17.55 610.6 L34.49 621.74 L50.82 628.71 L66.53 631.5 L81.63 630.1 L96.12 624.53 L110 614.78 L123.27
+						 600.86 L123.49 600.57" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="602.954" y="-76.2943" width="57.1995" height="14.4001" transform="rotate(90)"
+					class="st12"/>
+			<text x="602.95" y="-65.49" transform="rotate(90)" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>After_30ms</text>		</g>
+		<g id="shape12-30" v:mID="12" v:groupContext="shape" v:layerMember="0"
+				transform="translate(132.835,764.341) rotate(-147.011)">
+			<title>Кривая соединительная линия.12</title>
+			<desc>After_420ms</desc>
+			<v:userDefs>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="47.47" cy="610.084" width="73.1" height="22.4037" transform="rotate(147.011)"/>
+			<path d="M0 595.28 L10.31 602.3 L22.7 607.08 L37.15 609.63 L53.67 609.94 L72.26 608.01 L92.92 603.85 L115.65 597.45 L115.99
+						 597.34" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="260.721" y="-544.769" width="63.2815" height="14.4001" transform="rotate(147.011)"
+					class="st10"/>
+			<text x="260.72" y="-533.97" transform="rotate(147.011)" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>After_420ms</text>		</g>
+		<g id="shape13-37" v:mID="13" v:groupContext="shape" v:layerMember="0"
+				transform="translate(625.21,912.75) rotate(-27.0681) scale(1,-1)">
+			<title>Кривая соединительная линия.13</title>
+			<desc>After_420ms</desc>
+			<v:userDefs>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="69.5534" cy="575.649" width="74" height="22.4037" transform="rotate(27.0681)"/>
+			<path d="M0 595.28 L20.83 586.22 L39.97 579.95 L57.42 576.45 L73.18 575.73 L87.26 577.78 L99.64 582.61 L110.34 590.22
+						 L110.59 590.48" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-231.654" y="537.046" width="63.2815" height="14.4001" transform="rotate(-27.0681)"
+					class="st12"/>
+			<text x="-231.65" y="-540.65" transform="rotate(-27.0681) scale(1,-1)" class="st11" v:langID="1033"><v:paragraph
+						v:horizAlign="1"/><v:tabList/>After_420ms</text>		</g>
+		<g id="shape14-44" v:mID="14" v:groupContext="shape" transform="translate(598.893,-245.652) rotate(45)">
+			<title>Стрелка посередине</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M67.82 595.28 L0 595.28 L26.87 595.28" class="st13"/>
+		</g>
+	</g>
+</svg>

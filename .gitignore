@@ -1,9 +1,23 @@
 #MicrochipStudio
 .vs/
 
-#extra ignore in DEBUG...
+#Build Directories
+[Dd]ebug/
+[Rr]elease/
 
-#proteus
+#Build Results
+*.o
+*.d
+*.eep
+!*.elf
+!*.hex
+*.map
+*.srec
+
+#User Specific Files
+*.atsuo
+
+#Proteus
 *.pdsbak
 *.workspace
 

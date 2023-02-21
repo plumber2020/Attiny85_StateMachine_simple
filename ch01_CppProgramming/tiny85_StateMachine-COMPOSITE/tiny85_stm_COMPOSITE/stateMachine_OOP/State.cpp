@@ -2,15 +2,14 @@
 #include <string.h>
 
 
-State::State(char const* nameID)
+State::State(uint16_t stateID) : stateID(stateID)
 {
-	strncpy(name, nameID, 8);
 }
 
-void State::set_function(state_func in_func, state_func out_func)
+void State::set_function(state_handler in, state_handler out)
 {
-	 in = in_func;
-	 out = out_func;
+	 handlers.in = in;
+	 handlers.out = out;
 }
 
 void State::set_connections(Connection** array, uint16_t size)
@@ -21,10 +20,10 @@ void State::set_connections(Connection** array, uint16_t size)
 
 void State::set_upper_stm(StateMachine* stm)
 {
-	upper_stm = stm;
+	stm_node.upper_stm = stm;
 }
 
 void State::set_inner_stm(StateMachine* stm)
 {
-	inner_stm = stm;
+	stm_node.inner_stm = stm;
 }

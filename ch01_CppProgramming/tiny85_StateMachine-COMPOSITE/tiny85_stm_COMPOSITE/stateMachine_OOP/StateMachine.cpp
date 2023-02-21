@@ -7,13 +7,14 @@ StateMachine::StateMachine(State* initial) {
 void StateMachine::start(State* state)
 {
     current_state = (state) ? state : initial_state;
-    current_state->in();
-	if(current_state->inner_stm) current_state->inner_stm->start();
+    current_state->handlers.in();
+	if(current_state->stm_node.inner_stm) 
+		current_state->stm_node.inner_stm->start();
 }
 
 void StateMachine::stop()
 {
-	current_state->out();
+	current_state->handlers.out();
 	current_state = nullptr;
 }
 
@@ -24,10 +25,11 @@ void StateMachine::check_event() {
 			&& current_state->connections.buff[i]->trans->cond())
 		{
 			//если состояние имеет внутреннюю StateMachine, то ее останавливаем
-			if( current_state->inner_stm ) current_state->inner_stm->stop();
+			if( current_state->stm_node.inner_stm ) 
+				current_state->stm_node.inner_stm->stop();
 			
 			//выходим из состояния
-			current_state->out();
+			current_state->handlers.out();
 			
 			//осуществляем переход в новое состояние по назначенной транзакции
 			current_state->connections.buff[i]->trans->act();
@@ -35,10 +37,10 @@ void StateMachine::check_event() {
 			
 			//если новое состояние находится в рамках этой же StateMachine,
 			//то входим в состояние
-			if( current_state->upper_stm == this) 
-				current_state->in();
-				if( current_state->inner_stm ) 
-					current_state->inner_stm->start(current_state);
+			if( current_state->stm_node.upper_stm == this) 
+				current_state->handlers.in();
+				if( current_state->stm_node.inner_stm ) 
+					current_state->stm_node.inner_stm->start(current_state);
 				
 			//иначе, останавливаем текущюю StateMachine и 
 			//запускаем новую, согласно нового состояния
@@ -46,7 +48,7 @@ void StateMachine::check_event() {
 			{
 				State* tmp = current_state;
 				stop();
-				if(tmp) tmp->upper_stm->start(tmp);
+				if(tmp) tmp->stm_node.upper_stm->start(tmp);
 			}
 		}
 	}

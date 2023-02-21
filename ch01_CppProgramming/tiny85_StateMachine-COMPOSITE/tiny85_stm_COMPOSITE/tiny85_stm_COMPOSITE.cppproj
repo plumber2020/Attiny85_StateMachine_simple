@@ -13,7 +13,7 @@
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
     <AssemblyName>tiny85_stm_VIRTUAL_</AssemblyName>
-    <Name>tiny85_stm_VIRTUAL</Name>
+    <Name>tiny85_stm_COMPOSITE</Name>
     <RootNamespace>tiny85_stm_VIRTUAL_</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>

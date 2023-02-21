@@ -19,15 +19,17 @@ volatile bool	  tic_flag  = 0;
 ///////////////////////////////////////////////////////////
 //	STATE SETTING	///////////////////////////////////////
 
-State state_0("state_0");
-State state_1("state_1");
-State state_2("state_2");
-State state_3("state_3");
+enum StateNames {STATE_SUPER, STATE_RED, STATE_YELLOW, STATE_GREEN};
+	
+State state_0(STATE_SUPER);
+State state_1(STATE_RED);
+State state_2(STATE_YELLOW);
+State state_3(STATE_GREEN);
 
-#define STATE0_PERIOD_msec				420		//LED_SUPER
-#define STATE1_PERIOD_msec				100		//LED_RED
-#define STATE2_PERIOD_msec				30		//LED_YELLOW
-#define STATE3_PERIOD_msec				420		//LED_GREEN
+#define STATE0_PERIOD_msec		420		//LED_SUPER (RED+YELLOW)
+#define STATE1_PERIOD_msec		100		//LED_RED
+#define STATE2_PERIOD_msec		30		//LED_YELLOW
+#define STATE3_PERIOD_msec		420		//LED_GREEN
 
 void in_0 ()	{ PIN_SET_HIGH(LED_SUPER);	stm_0_tic = 0;	}
 void out_0()	{ PIN_SET_LOW(LED_SUPER);					}
